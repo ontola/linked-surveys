@@ -1,0 +1,51 @@
+inherit_from: service_module/.rubocop.yml
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'doc/**/*'
+    - 'app/assets/javascripts/_*'
+    - 'app/assets/javascripts/_*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'bin/*'
+Lint/UselessAssignment:
+  Exclude:
+    - 'Gemfile'
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.jbuilder'
+    - 'spec/rails_helper.rb'
+    - 'config/**/*.rb'
+    - 'db/seeds.rb'
+    - 'spec/support/database_cleaner.rb'
+    - 'spec/shared_examples/*.rb'
+Metrics/ClassLength:
+  Exclude:
+    - 'test/controllers/*.rb'
+    - 'test/integration/**/*.rb'
+    - 'test/unit/*.rb'
+Naming/PredicateName:
+  Enabled: false
+Rails/ApplicationRecord:
+  Exclude:
+    - 'config/initializers/doorkeeper.rb'
+Rails/DynamicFindBy:
+  Whitelist:
+    - find_by_opts
+    - find_by_iri
+    - find_by_iri!
+    - find_by_path
+RSpec/ContextWording:
+  Enabled: false
+RSpec/DescribeClass:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
