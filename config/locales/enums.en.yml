@@ -1,0 +1,21 @@
+en:
+  enums:
+    form_field_type:
+      selectInput: 'Select'
+      textInput: 'Text'
+      dateInput: 'Date'
+      checkboxGroup: 'Checkbox'
+      textAreaInput: 'TextArea'
+      checkboxInput: 'Checkbox'
+      colorInput: 'Color'
+      dateTimeInput: 'DateTime'
+      emailInput: 'Email'
+      fileInput: 'File'
+      locationInput: 'Location'
+      moneyInput: 'Money'
+      multipleEmailInput: 'MultipleEmail'
+      numberInput: 'Number'
+      passwordInput: 'Password'
+      radioGroup: 'Radio'
+      sliderInput: 'Slider'
+      toggleButtonGroup: 'ToggleButton'

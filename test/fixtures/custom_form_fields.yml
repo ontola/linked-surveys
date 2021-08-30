@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  form_id: 1
+  form_field_type: MyString
+  title: MyString
+  description: MyText
+  helper_text: MyText
+  default_value: MyString
+  max_count: 1
+  max_count_prop: MyString
+  min_count: 1
+  min_count_prop: MyString
+  max_inclusive: 1
+  max_inclusive_prop: MyString
+  min_inclusive: 1
+  min_inclusive_prop: MyString
+  max_length: 1
+  max_length_prop: MyString
+  min_length: 1
+  min_length_prop: MyString
+  pattern: MyString
+  sh_in: MyString
+  sh_in_prop: MyString
+  predicate: MyString
+
+two:
+  form_id: 1
+  form_field_type: MyString
+  title: MyString
+  description: MyText
+  helper_text: MyText
+  default_value: MyString
+  max_count: 1
+  max_count_prop: MyString
+  min_count: 1
+  min_count_prop: MyString
+  max_inclusive: 1
+  max_inclusive_prop: MyString
+  min_inclusive: 1
+  min_inclusive_prop: MyString
+  max_length: 1
+  max_length_prop: MyString
+  min_length: 1
+  min_length_prop: MyString
+  pattern: MyString
+  sh_in: MyString
+  sh_in_prop: MyString
+  predicate: MyString

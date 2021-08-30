@@ -1,0 +1,52 @@
+en:
+  argu:
+    formFieldType:
+      label: "Field type"
+  foaf:
+    name:
+      label: "Naam"
+  ontola:
+    helperText:
+      label: "Helper text"
+    password:
+      label: "Wachtwoord"
+    quickActions:
+      label: "Actions"
+  rdfv:
+    type:
+      label: "Type"
+  schema:
+    Thing:
+      label: "Thing"
+      plural_label: "Things"
+    dateCreated:
+      label: "Date created"
+    dateModified:
+      label: "Date modified"
+    email:
+      label: "Email"
+    image:
+      label: "Image"
+    name:
+      label: "Name"
+  sh:
+    datatype:
+      label: "Datatype"
+    maxCount:
+      label: "Maximum count"
+    maxInclusive:
+      label: "Maximum value"
+    maxLength:
+      label: "Maximum length"
+    minCount:
+      label: "Minimum count"
+    minInclusive:
+      label: "Minimum value"
+    minLength:
+      label: "Minimum length"
+    pattern:
+      label: "Regex pattern"
+    in:
+      label: "Options"
+    path:
+      label: "Predicate"
