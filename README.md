@@ -1,24 +1,14 @@
-# README
+# Linked-Surveys
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Create linked data (RDF) Surveys! Build forms using an ontology. Designed to work with [cashlink](https://gitlab.com/ontola/cashlink), which enables you to financially reward surveys!
 
-Things you may want to cover:
+## Installing & running locally
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `git clone https://gitlab.com/ontola/linked-surveys`
+- Install ruby 2.6.1 (preferably using rvm or rbenv) and bundle
+- Setup the .env
+- `bundle install`. If you're on a mac and have `pg_config` errors install postgres `brew install postgresql`, and imagemagick with `brew link --force imagemagick@6`
+- `bundle exec rake db:setup`
+- `bundle exec rails s -b 0.0.0.0 -p 3000`
+- `RAILS_ENV=staging bundle exec rails s -b 0.0.0.0 -p 3000` if you want more performance and less debugging
+_note: We're still cleanign up this repository, so expect changes in the coming weeks that help you run this locally!_
