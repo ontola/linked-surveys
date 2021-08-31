@@ -11,4 +11,5 @@ Create linked data (RDF) Surveys! Build forms using an ontology. Designed to wor
 - `bundle exec rake db:setup`
 - `bundle exec rails s -b 0.0.0.0 -p 3000`
 - `RAILS_ENV=staging bundle exec rails s -b 0.0.0.0 -p 3000` if you want more performance and less debugging
+
 _note: We're still cleanign up this repository, so expect changes in the coming weeks that help you run this locally!_
