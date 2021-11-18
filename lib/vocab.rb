@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Vocab < LinkedRails::Vocab
-  register(:example, 'https://example.com/my_vocab#')
-  app_vocabulary :example
+  register(:argu, 'https://argu.co/ns/core#')
+
+  app_vocabulary :argu
 end

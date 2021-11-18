@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_095026) do
+ActiveRecord::Schema.define(version: 2021_11_18_100506) do
+
+  create_table "custom_form_fields", force: :cascade do |t|
+    t.integer "custom_form_id", null: false
+    t.integer "form_field_type", null: false
+    t.string "title"
+    t.text "description"
+    t.text "helper_text"
+    t.string "default_value"
+    t.integer "max_count"
+    t.integer "min_count"
+    t.integer "max_inclusive"
+    t.integer "min_inclusive"
+    t.integer "max_length"
+    t.integer "min_length"
+    t.string "pattern"
+    t.string "sh_in"
+    t.string "predicate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["custom_form_id"], name: "index_custom_form_fields_on_custom_form_id"
+  end
+
+  create_table "custom_forms", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_custom_forms_on_user_id"
+  end
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.string "resource_owner_id"
@@ -63,6 +92,20 @@ ActiveRecord::Schema.define(version: 2021_11_18_095026) do
     t.index ["owner_id"], name: "index_otp_secrets_on_owner_id", unique: true
   end
 
+  create_table "surveys", force: :cascade do |t|
+    t.integer "custom_form_id"
+    t.integer "user_id", null: false
+    t.string "title"
+    t.text "description"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer "reward"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["custom_form_id"], name: "index_surveys_on_custom_form_id"
+    t.index ["user_id"], name: "index_surveys_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -75,6 +118,10 @@ ActiveRecord::Schema.define(version: 2021_11_18_095026) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "custom_form_fields", "custom_forms"
+  add_foreign_key "custom_forms", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "surveys", "custom_forms"
+  add_foreign_key "surveys", "users"
 end
