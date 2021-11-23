@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CustomFormsController < AuthorizedController
+class SubmissionValuesController < AuthorizedController
   active_response :show, :index
 
   has_collection_create_action

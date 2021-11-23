@@ -19,6 +19,8 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require 'linked_rails/types/iri_type'
+
 module LinkedSurveys
   class Application < Rails::Application
     config.jwt_encryption_method = :hs512

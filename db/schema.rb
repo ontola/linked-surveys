@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_100506) do
+ActiveRecord::Schema.define(version: 2021_11_18_130803) do
 
   create_table "custom_form_fields", force: :cascade do |t|
     t.integer "custom_form_id", null: false
@@ -92,6 +92,25 @@ ActiveRecord::Schema.define(version: 2021_11_18_100506) do
     t.index ["owner_id"], name: "index_otp_secrets_on_owner_id", unique: true
   end
 
+  create_table "submission_values", force: :cascade do |t|
+    t.integer "submission_id", null: false
+    t.string "predicate", null: false
+    t.text "value", null: false
+    t.string "value_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["submission_id"], name: "index_submission_values_on_submission_id"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer "survey_id", null: false
+    t.string "session_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["survey_id"], name: "index_submissions_on_survey_id"
+  end
+
   create_table "surveys", force: :cascade do |t|
     t.integer "custom_form_id"
     t.integer "user_id", null: false
@@ -122,6 +141,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_100506) do
   add_foreign_key "custom_forms", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "submission_values", "submissions"
+  add_foreign_key "submissions", "surveys"
   add_foreign_key "surveys", "custom_forms"
   add_foreign_key "surveys", "users"
 end

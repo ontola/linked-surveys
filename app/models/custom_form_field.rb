@@ -17,8 +17,6 @@ class CustomFormField < ApplicationRecord
     colorInput: 6,
     dateTimeInput: 7,
     emailInput: 8,
-    fileInput: 9,
-    locationInput: 10,
     moneyInput: 11,
     multipleEmailInput: 12,
     numberInput: 13,

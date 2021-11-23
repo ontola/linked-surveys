@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SurveysController < ApplicationController
+class SurveysController < AuthorizedController
   active_response :show, :index
 
   has_collection_create_action

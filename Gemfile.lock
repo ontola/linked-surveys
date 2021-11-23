@@ -6,6 +6,18 @@ GIT
     active_response (0.0.3)
       railties
 
+PATH
+  remote: /home/arthur/dev/src/github.com/linked_rails
+  specs:
+    linked_rails (0.0.4)
+      active_response (~> 0.0.2)
+      kaminari-activerecord
+      pundit
+      rdf
+      rdf-serializers (~> 0.0.10)
+      rdf-vocab
+      uri_template
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,14 +127,6 @@ GEM
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
     link_header (0.0.8)
-    linked_rails (0.0.4)
-      active_response (~> 0.0.2)
-      kaminari-activerecord
-      pundit
-      rdf
-      rdf-serializers (~> 0.0.10)
-      rdf-vocab
-      uri_template
     linked_rails-auth (0.0.4)
       active_model_otp
       devise
@@ -261,7 +265,7 @@ DEPENDENCIES
   active_response!
   bootsnap (>= 1.4.4)
   byebug
-  linked_rails
+  linked_rails!
   linked_rails-auth
   listen (~> 3.3)
   puma (~> 5.0)

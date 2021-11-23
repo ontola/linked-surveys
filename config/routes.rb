@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   find_tenant_route
   use_doorkeeper
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: 'home_pages#show'
+  resource :home_page, only: :show, path: :home
+
   linked_resource(CustomForm)
   linked_resource(CustomFormField)
+  linked_resource(Submission)
+  linked_resource(SubmissionValue)
   linked_resource(Survey)
 end

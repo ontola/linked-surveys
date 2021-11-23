@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 class CustomFormFieldForm < ApplicationForm
+  def self.has_any_type
+    [
+      LinkedRails::SHACL::PropertyShape.new(
+        path: [Vocab.argu[:formFieldType]],
+        min_count: 1
+      )
+    ]
+  end
+
   def self.has_type(type)
     [
       LinkedRails::SHACL::PropertyShape.new(
@@ -13,9 +22,9 @@ class CustomFormFieldForm < ApplicationForm
   end
 
   field :form_field_type
-  field :title
-  field :description
-  field :helper_text
+  field :title, if: has_any_type
+  field :description, if: has_any_type
+  field :helper_text, if: has_any_type
   %i[checkboxGroup radioGroup selectInput toggleButtonGroup].each do |type|
     field :sh_in, if: has_type(type)
   end
@@ -27,7 +36,6 @@ class CustomFormFieldForm < ApplicationForm
     field :max_inclusive, if: has_type(type)
     field :min_inclusive, if: has_type(type)
   end
-  field :max_count
-  field :min_count
-  field :predicate
+  field :max_count, if: has_any_type
+  field :min_count, if: has_any_type
 end

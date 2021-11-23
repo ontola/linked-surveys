@@ -5,7 +5,7 @@ ruby '3.0.2'
 
 gem 'active_response', git: 'https://github.com/ontola/active_response', branch: 'hash-arguments'
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'linked_rails'
+gem 'linked_rails', path: '/home/arthur/dev/src/github.com/linked_rails'
 gem 'linked_rails-auth'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
