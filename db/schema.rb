@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_130803) do
+ActiveRecord::Schema.define(version: 2021_11_23_102522) do
+
+  create_table "coupon_batches", force: :cascade do |t|
+    t.integer "survey_id", null: false
+    t.string "display_name"
+    t.integer "coupon_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["survey_id"], name: "index_coupon_batches_on_survey_id"
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.integer "coupon_batch_id", null: false
+    t.string "token"
+    t.datetime "used_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coupon_batch_id"], name: "index_coupons_on_coupon_batch_id"
+  end
 
   create_table "custom_form_fields", force: :cascade do |t|
     t.integer "custom_form_id", null: false
@@ -108,6 +126,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_130803) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "coupon"
     t.index ["survey_id"], name: "index_submissions_on_survey_id"
   end
 
@@ -118,7 +137,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_130803) do
     t.text "description"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.integer "reward"
+    t.integer "reward", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["custom_form_id"], name: "index_surveys_on_custom_form_id"
@@ -137,6 +156,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_130803) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coupon_batches", "surveys"
+  add_foreign_key "coupons", "coupon_batches"
   add_foreign_key "custom_form_fields", "custom_forms"
   add_foreign_key "custom_forms", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"

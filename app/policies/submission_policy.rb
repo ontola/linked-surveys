@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class SubmissionPolicy < ApplicationPolicy
-  permit_attributes %i[survey session_id status]
+  permit_attributes %i[status]
+  permit_attributes %i[coupon], has_values: {require_coupon: true}
 
   def create?
     true

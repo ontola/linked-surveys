@@ -7,5 +7,6 @@ class SurveySerializer < ApplicationSerializer
   attribute :starts_at, predicate: Vocab.schema.startDate
   attribute :ends_at, predicate: Vocab.schema.endDate
   attribute :reward, predicate: Vocab.app[:reward]
-  with_collection :submissions
+  with_collection :submissions, predicate: Vocab.app[:submissions]
+  with_collection :coupon_batches, predicate: Vocab.app[:couponBatches]
 end

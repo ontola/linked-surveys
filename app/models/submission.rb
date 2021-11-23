@@ -5,11 +5,15 @@ class Submission < ApplicationRecord
 
   belongs_to :survey, required: true
   alias parent survey
-
   has_many :submission_values,
            autosave: true,
            dependent: :destroy
+
   with_collection :submission_values
+
+  validates :coupon, presence: true, if: :require_coupon?
+  validate :validate_coupon
+  after_create :invalidate_coupon, if: :coupon
 
   collection_options(
     display: :table
@@ -42,6 +46,36 @@ class Submission < ApplicationRecord
         value_type: statement.object,
       )
     end
+  end
+
+  def require_coupon?
+    parent.has_reward? && new_record?
+  end
+
+  def require_coupon
+    require_coupon?
+  end
+
+  private
+
+  def coupon_batch
+    @coupon_batch ||= parent.coupon_batches.joins(:coupons).find_by(coupons: {token: coupon})
+  end
+
+  # rubocop:disable Rails/SkipsModelValidations
+  def invalidate_coupon
+    Coupon.find_by!(
+      coupon_batch: coupon_batch,
+      used_at: nil,
+      token: coupon
+    ).update(used_at: Time.current)
+  end
+  # rubocop:enable Rails/SkipsModelValidations
+
+  def validate_coupon
+    return if !require_coupon? || coupon_batch.present?
+
+    errors.add(:coupon, I18n.t('coupon_batches.errors.coupon.invalid'))
   end
 
   class << self

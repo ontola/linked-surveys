@@ -6,10 +6,16 @@ class Survey < ApplicationRecord
 
   belongs_to :custom_form, required: false, dependent: :destroy
   belongs_to :user, required: true
+  has_many :coupon_batches, dependent: :destroy
   has_many :submissions, dependent: :destroy
   with_collection :submissions
+  with_collection :coupon_batches
 
   validates :description, length: {maximum: 20_000}
+
+  def has_reward?
+    reward.positive?
+  end
 
   def submission_for(user_context)
     return nil if user_context.nil?

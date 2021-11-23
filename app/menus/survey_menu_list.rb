@@ -32,6 +32,12 @@ class SurveyMenuList < ApplicationMenuList
         href: resource.collection_iri(:submissions),
         image: 'fa-list-ul',
         policy: :update?
+      ),
+      menu_item(
+        :coupon_batches,
+        href: resource.collection_iri(:coupon_batches),
+        image: 'fa-key',
+        policy: :update?
       )
     ]
   end

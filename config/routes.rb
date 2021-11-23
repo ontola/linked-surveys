@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root to: 'home_pages#show'
   resource :home_page, only: :show, path: :home
 
+  linked_resource(Coupon)
+  linked_resource(CouponBatch)
   linked_resource(CustomForm)
   linked_resource(CustomFormField)
   linked_resource(Submission)
