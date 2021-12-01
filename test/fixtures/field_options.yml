@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  custom_form_field: one
+  label: MyString
+  predicate: MyString
+
+two:
+  custom_form_field: two
+  label: MyString
+  predicate: MyString

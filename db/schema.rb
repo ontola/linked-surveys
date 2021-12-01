@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_11_23_102522) do
     t.integer "max_length"
     t.integer "min_length"
     t.string "pattern"
-    t.string "sh_in"
     t.string "predicate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -57,6 +56,16 @@ ActiveRecord::Schema.define(version: 2021_11_23_102522) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_custom_forms_on_user_id"
+  end
+
+  create_table "field_options", force: :cascade do |t|
+    t.integer "custom_form_field_id", null: false
+    t.string "label"
+    t.string "predicate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "order", default: 0, null: false
+    t.index ["custom_form_field_id"], name: "index_field_options_on_custom_form_field_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -160,6 +169,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_102522) do
   add_foreign_key "coupons", "coupon_batches"
   add_foreign_key "custom_form_fields", "custom_forms"
   add_foreign_key "custom_forms", "users"
+  add_foreign_key "field_options", "custom_form_fields"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "submission_values", "submissions"

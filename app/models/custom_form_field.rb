@@ -6,6 +6,8 @@ class CustomFormField < ApplicationRecord
 
   belongs_to :custom_form
   alias parent custom_form
+  has_many :field_options
+  with_collection :field_options
 
   enum form_field_type: {
     selectInput: 0,

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   linked_resource(CouponBatch)
   linked_resource(CustomForm)
   linked_resource(CustomFormField)
+  linked_resource(FieldOption)
   linked_resource(Submission)
   linked_resource(SubmissionValue)
   linked_resource(Survey)
