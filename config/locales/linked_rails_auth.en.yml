@@ -50,6 +50,7 @@ en:
   forms:
     access_tokens:
       email:
+        placeholder: 'email@example.com'
         label: "Email"
     otp_attempts:
       helper_text: 'You can find this in the authentication-application you used earlier.'
@@ -57,7 +58,16 @@ en:
     otp_secrets:
       provision_image:
         description: 'Install a authentication-application and scan this QR code.'
+    registrations:
+      email:
+        placeholder: 'email@example.com'
+      password_confirmation:
+        helper_text: "Same as above"
+        label: "Confirm password"
+      password:
+        label: "Password"
     sessions:
       email:
+        placeholder: 'email@example.com'
         label: "Email"
 

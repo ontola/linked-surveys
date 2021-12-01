@@ -1,0 +1,6 @@
+en:
+  actions:
+    submissions:
+      create:
+        label: "Fill in survey"
+        submit: "Start"

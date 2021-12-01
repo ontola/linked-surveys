@@ -43,7 +43,7 @@ class Submission < ApplicationRecord
         submission: self,
         predicate: statement.predicate,
         value: statement.object.to_s,
-        value_type: statement.object,
+        value_type: statement.object.is_a?(RDF::URI) ? Vocab.xsd.anyURI : statement.object.datatype,
       )
     end
   end
@@ -54,6 +54,10 @@ class Submission < ApplicationRecord
 
   def require_coupon
     require_coupon?
+  end
+
+  def reward_iri
+    LinkedRails.iri(path: 'assets/reward.gif')
   end
 
   private

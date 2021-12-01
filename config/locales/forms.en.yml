@@ -1,0 +1,34 @@
+en:
+  forms:
+    coupon_batches:
+      display_name:
+        label: "Label"
+        description: "Enter a label so you can recognize this batch later on."
+      coupon_count:
+        label: "Count"
+        description: "How many coupons do you want to create?"
+    custom_form_fields:
+      form_field_type:
+        label: "Type"
+      title:
+        label: "Label"
+      description:
+        label: "Description"
+      helper_text:
+        label: "Helper text"
+      field_options:
+        label: "Options"
+      max_length:
+        label: "Maximum length"
+      min_length:
+        label: "Minimum length"
+      max_inclusive:
+        label: "Maximum value"
+      min_inclusive:
+        label: "Minimum value"
+      max_count:
+        label: "Maximum count"
+      min_count:
+        label: "Minimum count"
+      placeholder:
+        label: "Placeholder text"

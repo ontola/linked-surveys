@@ -18,6 +18,10 @@ class SubmissionPolicy < ApplicationPolicy
     false
   end
 
+  def reward?
+    record.parent.has_reward?
+  end
+
   private
 
   def completed?

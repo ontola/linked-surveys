@@ -35,6 +35,7 @@ class ApplicationMenuList < LinkedRails::Menus::List
     menu_item(
       :edit,
       image: 'fa-edit',
+      dialog: true,
       href: iri,
       policy: :update?
     )

@@ -1,0 +1,21 @@
+en:
+  enums:
+    custom_form_fields:
+      form_field_type:
+        selectInput: Select
+        textInput: Text
+        dateInput: Date
+        checkboxGroup: Checkboxes
+        textAreaInput: Tekstvlak
+        checkboxInput: Checkbox
+        colorInput: Color
+        dateTimeInput: Date & Time
+        emailInput: Email
+        moneyInput: Money
+        multipleEmailInput: Multiple emails
+        numberInput: Number
+        passwordInput: Password
+        radioGroup: Radio group
+        sliderInput: Slider
+        toggleButtonGroup: Toggle buttons
+

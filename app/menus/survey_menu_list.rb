@@ -36,6 +36,7 @@ class SurveyMenuList < ApplicationMenuList
       menu_item(
         :coupon_batches,
         href: resource.collection_iri(:coupon_batches),
+        label: I18n.t('argu.CouponBatch.plural_label'),
         image: 'fa-key',
         policy: :update?
       )

@@ -15,6 +15,12 @@ class SubmissionsController < AuthorizedController
       target_query: {'submission[status]' => :submission_finished}
     )
   )
+  has_resource_action(
+    :claim_reward,
+    on_success: -> { respond_with_redirect(location: current_resource.reward_iri.to_s, reload: true) },
+    one_click: true,
+    policy: :reward?
+  )
 
   private
 

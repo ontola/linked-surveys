@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_102522) do
+ActiveRecord::Schema.define(version: 2021_11_29_085637) do
 
   create_table "coupon_batches", force: :cascade do |t|
     t.integer "survey_id", null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_11_23_102522) do
     t.string "predicate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order", default: 0, null: false
+    t.string "placeholder"
     t.index ["custom_form_id"], name: "index_custom_form_fields_on_custom_form_id"
   end
 

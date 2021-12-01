@@ -10,6 +10,10 @@ class User < ApplicationRecord
           foreign_key: :owner_id,
           inverse_of: :owner
 
+  validates :email,
+            allow_blank: false,
+            format: {with: RFC822::EMAIL}
+
   def guest?
     false
   end

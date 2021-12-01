@@ -6,4 +6,8 @@ class CustomFormFieldsController < AuthorizedController
   has_collection_create_action
   has_resource_update_action
   has_resource_destroy_action
+
+  def update_success_location
+    current_resource.parent.surveys.first || super
+  end
 end

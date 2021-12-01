@@ -1,4 +1,26 @@
 en:
+  argu:
+    CouponBatch:
+      label: "Coupons"
+      plural_label: "Coupons"
+    CustomForm:
+      label: "Form"
+      plural_label: "Forms"
+    CustomFormField:
+      label: "Field"
+      plural_label: "Fields"
+    FieldOption:
+      label: "Option"
+      plural_label: "Options"
+    Submission:
+      label: "Response"
+      plural_label: "Responses"
+    couponCount:
+      label: "Count"
+    submissionData:
+      label: "Data"
+    submissionStatus:
+      label: "Status"
   foaf:
     name:
       label: "Name"

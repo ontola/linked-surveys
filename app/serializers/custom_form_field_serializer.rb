@@ -15,6 +15,8 @@ class CustomFormFieldSerializer < ApplicationSerializer
   attribute :sh_in, predicate: Vocab.sh.in
   attribute :predicate, predicate: Vocab.argu[:predicate]
   attribute :sh_path, predicate: Vocab.sh.path
+  attribute :order, predicate: Vocab.argu[:order]
+  attribute :placeholder, predicate: Vocab.form[:placeholder]
 
   enum :form_field_type, predicate: Vocab.argu[:formFieldType]
 
